@@ -30,6 +30,7 @@
   height: 70px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .sidebar_button:hover{
@@ -55,45 +56,66 @@
   text-indent: 1em;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 8fr 4fr 1fr;
-  justify-content: center;
-  text-indent: 1em;
+.card{
+  width: 200px;
+  display: flex;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  opacity: 1;
 }
 
-.card{
-  text-align: center;
-  padding-top: 10px;
-  opacity: 1;
+.card-body{
   width: 200px;
-  color: white;
+  display: grid;
+  grid-template-columns: 1px 2fr;
+  text-align: center;
+  padding-left: 50px;
 }
 
 .card-title{
-  color: #262626;
+  color: black;
   display: block;
   overflow: hidden;
+  font-weight: 500;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 120%;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 0 !important;
 }
 
-img {
-  display: block;
-  margin: auto;
+.date{
+  display: grid;
+  height: 52px;
+  width: 52px;
+  box-sizing: border-box;
+  grid-template-rows: 20px 5fr;
+  background-color: white;
+  border: 1px solid #D2E7F2;
+  border-radius: 4px;
 }
 
-.slick-prev:before, .slick-prev:after{
+.date-day{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+  align-items: center;
+  text-align: center;
   color: black;
 }
 
-.follow{
-  background-color: #3897f0;
-  border: 1px solid #3897f0;
-  border-radius: 4px;
+.date-month{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 120%;
+  align-items: center;
+  text-align: center;
   color: white;
-  margin-top: 20px;
+  background-color: rgb(0,86,132,1);
+  border-radius: 4px 4px 0px 0px;
+}
+
+.slick-prev:before, .slick-next:before{
+  color: black !important;
 }

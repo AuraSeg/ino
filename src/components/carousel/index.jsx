@@ -21,7 +21,7 @@ export default function Carousel() {
     infinite: false,
     speed: 1000,
     arrows: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 4,
 
     responsive: [
@@ -45,30 +45,18 @@ export default function Carousel() {
     <div className="container">
       <h6 className="text-muted">Friend Suggestions</h6>
       {suggestions.length === 0 ? (
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
+        <div className="spinner-border" role="status"></div>
       ) : (
         <Slider {...settings}>
           {suggestions.map((current) => (
             <div className="out" key={current.id}>
               <div className="card">
-                <img
-                  className="rounded-circle"
-                  alt={"users here"}
-                  src={`https://source.unsplash.com/random/${current.id}`}
-                  height={56}
-                  width={56}
-                />
                 <div className="card-body">
-                  <h5 className="card-title">{current.username}</h5>
-                  <small className="card-text text-sm-center text-muted">
-                    In your contacts
-                  </small>
-                  <br />
-                  <button className="btn btn-sm follow btn-primary">
-                    Follow
-                  </button>
+                    <span className="date">
+                        <span className="date-month">{current.id}</span>
+                        <span className="date-day">{current.id}</span>
+                    </span>
+                    <span className="card-title">{current.username}</span>
                 </div>
               </div>
             </div>

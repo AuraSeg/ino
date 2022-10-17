@@ -5,7 +5,7 @@ import Carousel from "../../components/carousel";
 export default function Dashboard() {
 
   return (
-    <div className="content">
+    <div >
       <Carousel />
     </div>
   );

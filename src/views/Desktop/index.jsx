@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router";
 import Header from "../../components/header";
 import Sidebar from "../../components/sidebar";
 import Dashboard from "../Dashboard";
+import Milestones from "../Milestones";
 
 export default function Desktop() {
   return (
@@ -10,10 +11,10 @@ export default function Desktop() {
       <Sidebar />
       <div className="dashboard">
         <Header />
-        <div className="content">
+        <div >
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/milestones" element={<div>milestones</div>} />
+            <Route path="/milestones" element={<Milestones/>} />
           </Routes>
         </div>
       </div>
