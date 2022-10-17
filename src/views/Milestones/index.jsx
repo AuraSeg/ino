@@ -6,7 +6,7 @@ export default function Milestones() {
 
   return (
     <div >
-      <Carousel />
+      Milestones
     </div>
   );
 };

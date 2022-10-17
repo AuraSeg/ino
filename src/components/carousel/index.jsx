@@ -21,8 +21,8 @@ export default function Carousel() {
     infinite: false,
     speed: 1000,
     arrows: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3.5,
+    slidesToScroll: 3,
 
     responsive: [
       {
@@ -43,26 +43,31 @@ export default function Carousel() {
   };
   return (
     <div className="container">
-      <h6 className="text-muted">Friend Suggestions</h6>
-      {suggestions.length === 0 ? (
-        <div className="spinner-border" role="status"></div>
-      ) : (
-        <Slider {...settings}>
-          {suggestions.map((current) => (
-            <div className="out" key={current.id}>
-              <div className="card">
-                <div className="card-body">
-                    <span className="date">
-                        <span className="date-month">{current.id}</span>
-                        <span className="date-day">{current.id}</span>
-                    </span>
-                    <span className="card-title">{current.username}</span>
+      <div className="carousel">
+        <span className="carousel-title">Milestones
+          <span className="carousel-description">View all</span>
+        </span>
+        {suggestions.length === 0 ? (
+          <div className="spinner-border" role="status"></div>
+        ) : (
+          <Slider {...settings}>
+            {suggestions.map((current) => (
+              <div className="out" key={current.id}>
+                <div className="card">
+                  <div className="card-body">
+                      <span className="date">
+                          <span className="date-month">{current.id}</span>
+                          <span className="date-day">{current.id}</span>
+                      </span>
+                      <span className="card-title">{current.name}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
-      )}
+            ))}
+          </Slider>
+        )}
+        <button className="button-add">+</button>
+      </div>
     </div>
   );
   }

@@ -37,10 +37,14 @@
   background-color: rgb(29, 41, 81, 1);
 }
 
+.sidebar_butto{
+  background-color: white;
+}
+
 .icon{
   display: flex;
   width: auto;
-  height: 80px;
+  height: 120px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -56,21 +60,53 @@
   text-indent: 1em;
 }
 
+.carousel{
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: 3fr 65vmax 2fr;
+  border: 1px solid #CEDCE3;
+  border-radius: 5px;
+}
+
+.carousel-title{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  box-sizing: border-box;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  align-items: flex-end;
+  justify-content: left;
+  padding-left: 24px;
+  border-right: 1px solid #CEDCE3;
+}
+
+.carousel-description{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  color: rgba(0, 86, 132, 1);
+  font-size: 16px;
+  align-self: flex-start;
+}
+
 .card{
-  width: 200px;
+  width: 250px;
   display: flex;
   text-align: left;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   opacity: 1;
+  border: none !important;
 }
 
 .card-body{
   width: 200px;
   display: grid;
   grid-template-columns: 1px 2fr;
-  text-align: center;
+  text-align: left;
   padding-left: 50px;
+  align-items: flex-end;
 }
 
 .card-title{
@@ -80,9 +116,11 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 120%;
+  padding-left: 60px;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 0 !important;
+  align-items: flex-end;
 }
 
 .date{
@@ -118,4 +156,16 @@
 
 .slick-prev:before, .slick-next:before{
   color: black !important;
+}
+
+.button-add{
+  width: 40px;
+  height: 40px;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  background-color: rgba(9, 150, 153, 1);
+  font-size: 30px;
+  border-radius: 100%;
+  border: none;
 }
