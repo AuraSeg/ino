@@ -11,14 +11,16 @@ export default function Desktop() {
     <div className="desktop">
       <Sidebar />
       <div className="dashboard">
-        <Header />
-        <div >
-          <Carousel/>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/milestones" element={<Milestones/>} />
-          </Routes>
+        <div className="container">
+          <Header />
+          <div >
+            <Carousel/>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/milestones" element={<Milestones/>} />
+            </Routes>
+          </div>
         </div>
       </div>
     </div>

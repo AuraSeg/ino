@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
 
-import Milestone from "./components/carousel/milestone";
-
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Desktop from "./views/Desktop";
 
