@@ -1,20 +1,37 @@
-import React, {useState} from "react";
-import { useNavigate } from "react-router";
-import bulb from './icon/icon.png';
+import React, { useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
+import bulb from "./icon/icon.png";
 
 export default function Sidebar() {
   const navigate = useNavigate();
-  const [isActive, setIsActive] = useState(false);
 
-  const handleClick = () => {
-    setIsActive(current => !current);
-  };
+  let location = useLocation();
+
+  const activeTab = useMemo(() => {
+    return location.pathname.split("/")[1]
+  }, [location])
 
   return (
     <div className="sidebar">
       <img src={bulb} className="icon" alt="bottom" />
-      <span className="sidebar_button" style={{backgroundColor: !isActive ? 'rgb(29, 41, 81, 1)' : ''}} onClick={() => {navigate("/dashboard"); handleClick();}}>Dashboard</span>
-      <span className="sidebar_button" style={{backgroundColor: isActive ? 'rgb(29, 41, 81, 1)' : ''}} onClick={() => {navigate("/milestones"); handleClick();}}>Milestones</span>
+      <span
+        className="sidebar_button"
+        style={{ backgroundColor: activeTab==="dashboard" && "rgb(29, 41, 81, 1)" }}
+        onClick={() => {
+          navigate("/dashboard")
+        }}
+      >
+        Dashboard
+      </span>
+      <span
+        className="sidebar_button"
+        style={{ backgroundColor: activeTab==="milestones" && "rgb(29, 41, 81, 1)"}}
+        onClick={() => {
+          navigate("/milestones")
+        }}
+      >
+        Milestones
+      </span>
     </div>
   );
 }

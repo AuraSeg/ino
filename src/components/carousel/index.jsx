@@ -3,19 +3,25 @@ import "bootstrap/dist/css/bootstrap.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 export default function Carousel() {
   const navigate = useNavigate();
   const [suggestions, setSuggestions] = useState([]);
 
+  const getMilestones = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setSuggestions(data);
+    } catch (error) {}
+  };
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setSuggestions(data);
-      });
+    getMilestones();
   }, []);
 
   let settings = {
@@ -44,8 +50,16 @@ export default function Carousel() {
   };
   return (
     <div className="carousel">
-      <span className="carousel-title">Milestones
-        <span className="carousel-description" onClick={() => {navigate("/milestones")}}>View all</span>
+      <span className="carousel-title">
+        Milestones
+        <span
+          className="carousel-description"
+          onClick={() => {
+            navigate("/milestones");
+          }}
+        >
+          View all
+        </span>
       </span>
       {suggestions.length === 0 ? (
         <div className="spinner-border" role="status"></div>
@@ -54,7 +68,12 @@ export default function Carousel() {
           {suggestions.map((current) => (
             <div className="out" key={current.id}>
               <div className="card">
-                <div className="card-body" onClick={() => {navigate("milestones/${current.id}")}}>
+                <div
+                  className="card-body"
+                  onClick={() => {
+                    navigate("milestones/${current.id}");
+                  }}
+                >
                   <span className="date">
                     <span className="date-month">{current.id}</span>
                     <span className="date-day">{current.id}</span>
@@ -66,7 +85,14 @@ export default function Carousel() {
           ))}
         </Slider>
       )}
-      <button className="button-add" onClick={() => {navigate("/milestones/create")}}>+</button>
+      <button
+        className="button-add"
+        onClick={() => {
+          navigate("/milestones/create");
+        }}
+      >
+        +
+      </button>
     </div>
   );
 }
