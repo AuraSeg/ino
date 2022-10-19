@@ -54,7 +54,7 @@ export default function Carousel() {
           {suggestions.map((current) => (
             <div className="out" key={current.id}>
               <div className="card">
-                <div className="card-body">
+                <div className="card-body" onClick={() => {navigate("milestones/${current.id}")}}>
                   <span className="date">
                     <span className="date-month">{current.id}</span>
                     <span className="date-day">{current.id}</span>
@@ -66,7 +66,7 @@ export default function Carousel() {
           ))}
         </Slider>
       )}
-      <button className="button-add">+</button>
+      <button className="button-add" onClick={() => {navigate("/milestones/create")}}>+</button>
     </div>
   );
 }
