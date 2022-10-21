@@ -16,6 +16,7 @@ export default function Carousel() {
   const getMilestones = async () => {
     try {
       const { data } = await axios.get(
+        //"http://127.0.0.1:8000/milestones/"
         "https://performance-task-ino.herokuapp.com/milestones/"
       );
       setMilestones(data);

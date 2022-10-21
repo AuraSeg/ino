@@ -10,6 +10,7 @@ export default function Milestones() {
   const getMilestones = async () => {
     try {
       const { data } = await axios.get(
+        //"http://127.0.0.1:8000/milestones/"
         "https://performance-task-ino.herokuapp.com/milestones/"
       );
       setMilestones(data);
@@ -31,7 +32,7 @@ export default function Milestones() {
   };
 
   return (
-    <div>
+    <div className="space">
       <h3>Milestones</h3>
       <div className="content">
         {milestones.map((item) => (
@@ -52,14 +53,16 @@ export default function Milestones() {
           </div>
         ))}
       </div>
-      <button
-        className="button-add"
-        onClick={() => {
-          navigate("/milestones/create");
-        }}
-      >
-        +
-      </button>
+      <div className="space">
+        <button
+          className="button-add"
+          onClick={() => {
+            navigate("/milestones/create");
+          }}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }

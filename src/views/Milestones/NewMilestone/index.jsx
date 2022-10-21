@@ -10,8 +10,7 @@ const initialState = {
 };
 
 export default function NewMilestone() {
-  //const url = "https://jsonplaceholder.typicode.com/posts";
-  const url = "https://performance-task-ino.herokuapp.com/milestones/create";  
+  const url = "https://performance-task-ino.herokuapp.com/milestones/create";
   const [milestone, setMilestone] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -48,7 +47,7 @@ export default function NewMilestone() {
   }
 
   return (
-    <div>
+    <div className="space">
       <Fragment>
         <h3>New Milestone</h3>
         <form onSubmit={(e) => submit(e)}>
@@ -94,9 +93,11 @@ export default function NewMilestone() {
               return <option value={item.name}>{item.name}</option>;
             })}
           </datalist> */}
-          <button className="btn btn-info">
-            {loading ? "Loading..." : "Add"}
-          </button>
+          <div className="space">
+            <button className="btn btn-info">
+              {loading ? "Loading..." : "Add"}
+            </button>
+          </div>
           {error && <div>An error has occurred</div>}
           {success && <div>Successful</div>}
         </form>
