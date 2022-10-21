@@ -207,3 +207,9 @@
 .space{
   padding-top: 20px;
 }
+
+.alarm{
+  position: absolute;
+  padding-left: 60px;
+  padding-top: 5px;
+}

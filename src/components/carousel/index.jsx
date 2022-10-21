@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import moment from "moment";
+import { RiErrorWarningFill } from "react-icons/ri";
+import { IconContext } from "react-icons";
 
 export default function Carousel() {
   const navigate = useNavigate();
@@ -36,6 +38,15 @@ export default function Carousel() {
   const getMonth = (date) => {
     const d = new Date(date);
     return moment(d).format("MMM");
+  };
+
+  const compare = (date) => {
+    const d = new Date(date);
+    const thisDay = new Date();
+    if (thisDay >= d) {
+      return true;
+    }
+    return false;
   };
 
   let settings = {
@@ -82,10 +93,23 @@ export default function Carousel() {
           {milestones.map((current) => (
             <div className="out" key={current.id}>
               <div className="card">
+                {compare(current.due_date) ? (
+                  <span className="alarm">
+                    <IconContext.Provider
+                      value={{ color: "red", size: "20px" }}
+                    >
+                      <div>
+                        <RiErrorWarningFill />
+                      </div>
+                    </IconContext.Provider>
+                  </span>
+                ) : (
+                  ""
+                )}
                 <div
                   className="card-body"
                   onClick={() => {
-                    navigate("/milestones/"+current.id);
+                    navigate("/milestones/" + current.id);
                   }}
                 >
                   <span className="date">
