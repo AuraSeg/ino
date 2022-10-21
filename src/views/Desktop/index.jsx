@@ -5,7 +5,7 @@ import Header from "../../components/header";
 import Sidebar from "../../components/sidebar";
 import Dashboard from "../Dashboard";
 import Milestones from "../Milestones";
-import Milestone from "../Milestones/Milestone";
+import Milestone from "../Milestones/ViewMilestone";
 import NewMilestone from "../Milestones/NewMilestone";
 import View404 from "../View404";
 

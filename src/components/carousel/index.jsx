@@ -7,18 +7,15 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import moment from "moment";
-import { useSearchParams } from "react-router-dom";
 
 export default function Carousel() {
   const navigate = useNavigate();
   const [milestones, setMilestones] = useState([]);
   const WAIT_TIME = 5000;
-  const [searchParams] = useSearchParams();
 
   const getMilestones = async () => {
     try {
       const { data } = await axios.get(
-        //"https://jsonplaceholder.typicode.com/users"
         "https://performance-task-ino.herokuapp.com/milestones/"
       );
       setMilestones(data);
@@ -87,7 +84,7 @@ export default function Carousel() {
                 <div
                   className="card-body"
                   onClick={() => {
-                    navigate("/milestones/${id}");
+                    navigate("/milestones/"+current.id);
                   }}
                 >
                   <span className="date">

@@ -35,7 +35,13 @@ export default function Milestones() {
       <h3>Milestones</h3>
       <div className="content">
         {milestones.map((item) => (
-          <div className="milestone-title" key={item.id}>
+          <div
+            className="milestone-title"
+            onClick={() => {
+              navigate("/milestones/" + item.id);
+            }}
+            key={item.id}
+          >
             <div>
               <span className="date">
                 <span className="date-month">{getMonth(item.due_date)}</span>
