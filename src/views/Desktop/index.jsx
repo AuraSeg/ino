@@ -5,6 +5,7 @@ import Header from "../../components/header";
 import Sidebar from "../../components/sidebar";
 import Dashboard from "../Dashboard";
 import Milestones from "../Milestones";
+import Milestone from "../Milestones/Milestone";
 import NewMilestone from "../Milestones/NewMilestone";
 import View404 from "../View404";
 
@@ -22,7 +23,7 @@ export default function Desktop() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/milestones" element={<Milestones />} />
               <Route path="/milestones/create" element={<NewMilestone />} />
-              <Route path="/milestones/:id" element={<Milestones />} />
+              <Route path="/milestones/:id" element={<Milestone />} />
             </Routes>
           </div>
         </div>

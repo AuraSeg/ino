@@ -1,16 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {BsBell} from 'react-icons/bs';
 import { IconContext } from "react-icons";
 
 export default function Profile() {
-    const [suggestions, setSuggestions] = useState([]);
-    useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json())
-        .then((data) => {
-            setSuggestions(data);
-        });
-    }, []);
+    
     return(
         <div className="profile">
             <span></span>

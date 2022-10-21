@@ -6,23 +6,39 @@ import Slider from "react-slick";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import moment from "moment";
+import { useSearchParams } from "react-router-dom";
 
 export default function Carousel() {
   const navigate = useNavigate();
-  const [suggestions, setSuggestions] = useState([]);
+  const [milestones, setMilestones] = useState([]);
+  const WAIT_TIME = 5000;
+  const [searchParams] = useSearchParams();
 
   const getMilestones = async () => {
     try {
       const { data } = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
+        //"https://jsonplaceholder.typicode.com/users"
+        "https://performance-task-ino.herokuapp.com/milestones/"
       );
-      setSuggestions(data);
+      setMilestones(data);
+      WAIT_TIME();
     } catch (error) {}
   };
 
   useEffect(() => {
     getMilestones();
-  }, []);
+  }, [milestones]);
+
+  const getDay = (date) => {
+    const d = new Date(date);
+    return moment(d).format("D");
+  };
+
+  const getMonth = (date) => {
+    const d = new Date(date);
+    return moment(d).format("MMM");
+  };
 
   let settings = {
     infinite: false,
@@ -61,24 +77,26 @@ export default function Carousel() {
           View all
         </span>
       </span>
-      {suggestions.length === 0 ? (
+      {milestones.length === 0 ? (
         <div className="spinner-border" role="status"></div>
       ) : (
         <Slider {...settings}>
-          {suggestions.map((current) => (
+          {milestones.map((current) => (
             <div className="out" key={current.id}>
               <div className="card">
                 <div
                   className="card-body"
                   onClick={() => {
-                    navigate("milestones/${current.id}");
+                    navigate("/milestones/${id}");
                   }}
                 >
                   <span className="date">
-                    <span className="date-month">{current.id}</span>
-                    <span className="date-day">{current.id}</span>
+                    <span className="date-month">
+                      {getMonth(current.due_date)}
+                    </span>
+                    <span className="date-day">{getDay(current.due_date)}</span>
                   </span>
-                  <span className="card-title">{current.name}</span>
+                  <span className="card-title">{current.title}</span>
                 </div>
               </div>
             </div>

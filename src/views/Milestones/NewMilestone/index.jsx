@@ -2,14 +2,16 @@ import React, { Fragment, useState } from "react";
 import Axios from "axios";
 
 const initialState = {
+  team: 1,
   title: "",
   description: "",
-  date: "",
-  memberIds: "",
+  due_date: "",
+  // memberIds: "",
 };
 
 export default function NewMilestone() {
-  const url = "https://jsonplaceholder.typicode.com/posts";
+  //const url = "https://jsonplaceholder.typicode.com/posts";
+  const url = "https://performance-task-ino.herokuapp.com/milestones/create";  
   const [milestone, setMilestone] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -73,12 +75,12 @@ export default function NewMilestone() {
           <input
             className="form-control my-2"
             onChange={(e) => handle(e)}
-            id="date"
-            value={milestone.date}
+            id="due_date"
+            value={milestone.due_date}
             placeholder="Due date"
             type="date"
           ></input>
-          <label className="formlabel">Add team members</label>
+          {/* <label className="formlabel">Add team members</label>
           <input
             className="form-control my-2"
             list="datalistOptions"
@@ -91,7 +93,7 @@ export default function NewMilestone() {
             {arrayPeople.map((item) => {
               return <option value={item.name}>{item.name}</option>;
             })}
-          </datalist>
+          </datalist> */}
           <button className="btn btn-info">
             {loading ? "Loading..." : "Add"}
           </button>

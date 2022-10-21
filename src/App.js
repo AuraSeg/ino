@@ -1,14 +1,10 @@
 import React from "react";
 import "./App.css";
 
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Desktop from "./views/Desktop";
 
 function App() {
-  const [milestones, setMilestones] = React.useState([
-    { date: " 01,01,1999", description: "hola mundo" },
-    { date: " 01,01,2000", description: "hola mundo parte 2" },
-  ]);
 
   return (
     <BrowserRouter>
